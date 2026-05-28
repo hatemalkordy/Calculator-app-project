@@ -1,0 +1,288 @@
+/* Start Variables */
+:root, body[data-theme="1"] {
+    /* background */
+    --main-bg: hsl(222, 26%, 31%);
+    --toggle-bg: hsl(223, 31%, 20%);
+    --keypad-bg: hsl(223, 31%, 20%); 
+    --screen-bg: hsl(224, 36%, 15%);
+
+    /* Standard buttons (numbers and operations)*/
+    --key-bg: hsl(30, 25%, 89%);    
+    --key-shadow: hsl(28, 16%, 65%);
+    --key-text: hsl(221, 14%, 31%);
+
+    /* Special buttons (DEL and RESET) */
+    --special-key-bg: hsl(225, 21%, 49%);
+    --special-key-shadow: hsl(224, 28%, 35%);
+    --special-key-text: hsl(0, 100%, 100%);
+
+    /* The equals button and the pointer (=)*/
+    --equal-key-bg: hsl(6, 63%, 50%);
+    --equal-key-shadow: hsl(6, 70%, 34%);
+    --equal-key-text: hsl(0, 100%, 100%);
+
+    /* Front texts*/
+    --text-color: hsl(0, 100%, 100%);
+}
+
+body[data-theme="2"] {
+    /* background */
+    --main-bg: hsl(0, 0%, 90%);
+    --toggle-bg: hsl(0, 5%, 81%);
+    --keypad-bg: hsl(0, 5%, 81%);
+    --screen-bg: hsl(0, 0%, 93%);
+
+    /*Standard buttons (numbers and operations)*/
+    --key-bg: hsl(0, 0%, 90%);
+    --key-shadow: hsl(35, 11%, 61%);
+    --key-text: hsl(60, 10%, 19%);
+
+    /* Special buttons (DEL and RESET) */
+    --special-key-bg: hsl(185, 42%, 37%);
+    --special-key-shadow: hsl(185, 58%, 25%);
+    --special-key-text: hsl(0, 100%, 100%);
+
+    /* The equals button and the pointer (=) */
+    --equal-key-bg: hsl(25, 98%, 40%);
+    --equal-key-shadow: hsl(25, 99%, 27%);
+    --equal-key-text: hsl(0, 100%, 100%);
+
+    /* Front texts*/
+    --text-color: hsl(60, 10%, 19%);
+}
+
+body[data-theme="3"] {
+    /* background */
+    --main-bg: hsl(268, 75%, 9%);
+    --toggle-bg: hsl(268, 71%, 12%);
+    --keypad-bg: hsl(268, 71%, 12%);
+    --screen-bg: hsl(268, 71%, 12%);
+
+    /* Standard buttons (numbers and operations)*/
+    --key-bg: hsl(268, 47%, 21%);
+    --key-shadow: hsl(290, 70%, 36%);
+    --key-text: hsl(52, 100%, 62%);
+
+    /* Special buttons (DEL and RESET) */
+    --special-key-bg: hsl(281, 89%, 26%);
+    --special-key-shadow: hsl(285, 91%, 52%);
+    --special-key-text: hsl(0, 100%, 100%);
+
+    /* The equals button and the pointer (=) */
+    --equal-key-bg: hsl(176, 100%, 44%);
+    --equal-key-shadow: hsl(177, 92%, 70%);
+    --equal-key-text: hsl(198, 20%, 13%);
+
+    /* Front texts*/
+    --text-color: hsl(52, 100%, 62%);
+}
+/* End Variables */
+
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+/* End Global Rules */
+
+/* start content */
+body {
+    background-color: var(--main-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color); 
+}
+
+.content {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    color: var(--text-color); 
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 32px;
+    margin: 0;
+}
+
+.theme-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px; 
+}
+
+.theme-title {
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 5px; 
+}
+
+.theme-switcher {
+    display: flex;
+    flex-direction: column;
+    width: 70px; 
+}
+
+.theme-numbers {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 5px;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.toggle-bar {
+    background-color: var(--toggle-bg); 
+    height: 26px;
+    border-radius: 15px;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-circle {
+    width: 16px;
+    height: 16px;
+    background-color: var(--equal-key-bg); 
+    border-radius: 50%;
+    position: absolute;
+    left: 5px; 
+    transition: left 0.2s ease; 
+}
+
+.result-container {
+    width: 100%;
+    height: 100px;
+    background-color: var(--screen-bg);
+    color: var(--text-color); 
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 15px;
+    text-align: right;
+    align-content: center;
+    font-size: 40px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.components {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    background-color: var(--keypad-bg); 
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.components > div {
+    background-color: var(--key-bg);
+    color: var(--key-text);
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: inset 0 -4px 0 var(--key-shadow);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.components > div:hover {
+    opacity: 0.9;
+}
+
+.components > div:active {
+    transform: scale(0.95); 
+    box-shadow: inset 0 -1px 0 var(--key-shadow); 
+}
+
+.btn-reset, .btn-equal {
+    grid-column: span 2;
+}
+
+.components > .btn-del, 
+.components > .btn-reset {
+    background-color: var(--special-key-bg);
+    color: var(--special-key-text);
+    font-size: 20px;
+    box-shadow: inset 0 -4px 0 var(--special-key-shadow);
+}
+.components > .btn-del:active, 
+.components > .btn-reset:active {
+    box-shadow: inset 0 -1px 0 var(--special-key-shadow); 
+}
+
+.components > .btn-equal {
+    background-color: var(--equal-key-bg);
+    color: var(--equal-key-text);
+    box-shadow: inset 0 -4px 0 var(--equal-key-shadow);
+}
+.components > .btn-equal:active {
+    box-shadow: inset 0 -1px 0 var(--equal-key-shadow); 
+}
+
+@media (max-width: 480px) {
+    body {
+        justify-content: flex-start; 
+        padding: 20px 0;
+        background-color: var(--main-bg);
+    }
+
+    .content {
+        width: 100%;
+        max-width: 100%; 
+        padding: 15px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+    }
+    
+    .result-container {
+        font-size: 40px;
+        height: 110px; 
+        padding: 30px 20px;
+        margin-bottom: 20px;
+    }
+
+    .components {
+        gap: 14px; 
+        padding: 20px;
+        flex-grow: 1;
+    }
+
+    .components > div {
+        font-size: 32px;
+        padding: 18px 0; 
+    }
+
+    .components > .btn-del, 
+    .components > .btn-reset {
+        font-size: 20px;
+    }
+}
+
+
+/* end content */
