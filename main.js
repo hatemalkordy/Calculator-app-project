@@ -66,7 +66,8 @@ function handleCalculation(value) {
     } else if (value === '=') {
         try {
             let equation = currentInput.replace(/x/g, '*');
-            let result = eval(equation);
+            // let result = eval(equation);
+            let result = new Function(`return ${equation}`)();
 
             resultScreen.innerText = result;
             currentInput = result.toString();
